@@ -58,6 +58,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
+.experience .grid h3 {
+  font-size: 1.5em;
+}
 .experience .grid .column {
   display: flex;
   flex-direction: column;

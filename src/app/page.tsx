@@ -49,7 +49,7 @@ export default function Home() {
 					<p>
 						In my mid-teens I got tired of programming and started exploring different hobbies. I started
 						out with graphic design creating logos for myself and friends. That led to an interest in 3D
-						modeling, not for games however, I used to make abstract renders I&apos;d post to Instagram.
+						modeling; I used to make abstract renders I&apos;d post to Instagram.
 						Eventually I started drawing, mostly some wacky abstract sketches but I have created a couple
 						of murals too.
 					</p>
@@ -349,7 +349,7 @@ export default function Home() {
 						<div className={styles.panel_content}>
 							<h3>rehype-cl-img</h3>
 							<p>
-								An open source Rehype plugin for Contentlayer allowing users to embed any number of
+								An open source Rehype plugin for Contentlayer allowing developers to embed any number of
 								images in their mdx files, complete with image file management and automatic image size
 								detection.
 							</p>
@@ -388,7 +388,7 @@ export default function Home() {
 						<div className={styles.panel_content}>
 							<h3>cpp inquirer</h3>
 							<p>
-								An interactive command line interface for C+&#8288;+.
+								An interactive command line interface for C+&#8288;+ similar to Inquirer.js.
 							</p>
 							<div className={styles.tech}>
 								<p>Tech:</p>
@@ -400,8 +400,8 @@ export default function Home() {
 						<div className={styles.panel_content}>
 							<h3>coloforma</h3>
 							<p>
-								A library I made for C++ for printing formatted strings, with full 8bit colour support,
-								in the command line. Works very similar to fmt, but I made it before I knew it existed.
+								A library I made for C++ for printing formatted strings in the command line, with full
+								8-bit colour support. Works very similar to fmt, but I made it before I knew it existed.
 							</p>
 							<div className={styles.tech}>
 								<p>Tech:</p>
@@ -409,14 +409,16 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className={styles.panel} style={{gridColumn: "span 6"}}>
+					<div className={styles.panel} style={{gridColumn: "span 2"}}>
 						<div className={styles.panel_content}>
 							<h3>QCacheGrind</h3>
 							<p>
-								I made some contributions to the FOSS KCachegrind which is a KDE/Qt GUI to visualize
+								I made some contributions to the FOSS KCachegrind which is a KDE/Qt GUI used to
+								visualize
 								profiling data.
 								It&apos;s mainly used as visualization frontend for data measured by
-								Cachegrind/Callgrind.
+								Cachegrind/Callgrind. Both of these tools I use on a near daily basis when working on
+								desktop applications to identify potential performance improvements.
 							</p>
 							<div className={styles.tech}>
 								<p>Tech:</p>
@@ -424,8 +426,51 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-
+					<div className={styles.panel} style={{gridColumn: "span 2"}}>
+						<div className={styles.panel_content}>
+							<h3>Matt Godbolt&apos;s Compiler Explorer</h3>
+							<p>
+								A fork of godbolt.org compiler explorer which supports my own programming language
+								alxLang.
+							</p>
+							<div className={styles.tech}>
+								<p>Tech:</p>
+								<p>C++</p>
+							</div>
+						</div>
+					</div>
 				</div>
+				<h3 className="underline_blue">tidbits</h3>
+				<p>Some projects that either haven&apos;t seen the light of day or aren&apos;t worth mentioning
+					above</p>
+				<ul>
+					<li>AlxLib - a C++ library for random utility functions I used often.</li>
+					<li>74LS - software emulation of a few popular TI 74LS series chips.</li>
+					<li>QCalc - (not a Qt application despite the name) a simple windows app for common thermodynamic
+						and other physics calculations. Not as fancy as it sounds. C# and WinForms.
+					</li>
+					<li>RandomPulsarGraph - Generate random plots that resemble the Joy Divisions - Unknown Pleasures
+						album cover. Made with Processing (the Java library).
+					</li>
+					<li>DownLink - an Unreal Engine 4 game replicating the old Introversion Software game Uplink from
+						2001.
+					</li>
+					<li>Chemlist - following my interest in chemistry, I made an application to track inventory and
+						various projects in my lab. Made with C# and WinForms.
+					</li>
+					<li>Space Invaders - a space invaders clone but with slightly different rules. Made in Unreal Engine
+						5 for fun in about three days.
+					</li>
+					<li>Invoicing - a tiny CLI app that I still use to track my quotes, invoices, and budgets for my
+						clients. Made in Python, compiled with Cython.
+					</li>
+					<li>CppLT - all C++ keywords redefined in Lithuanian. As a joke.</li>
+					<li>Countless of RESTful service projects serving the dozens of projects I juggle. Most in NodeJs, some
+						in .NET or Python.
+					</li>
+				</ul>
+
+
 			</section>
 		</main>
 	);

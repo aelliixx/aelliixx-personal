@@ -1,0 +1,75 @@
+:root {
+	--red: #cc5c54;
+	--blue: #7094c2;
+	--green: #6dc09c;
+
+	--primary: black;
+}
+
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+body {
+	line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+
+#root, #__next {
+	isolation: isolate;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+a:visited {
+	color: var(--primary);
+}
+
+button {
+	cursor: pointer;
+}
+
+.underline_red, .underline_blue, .underline_green {
+	text-decoration-line: underline;
+	text-decoration-thickness: 0.125rem;
+}
+
+.underline_red {
+	text-decoration-color: var(--red);
+}
+
+.underline_blue {
+	text-decoration-color: var(--blue);
+}
+
+.underline_green {
+	text-decoration-color: var(--green);
+}
+
+.text_button {
+	border: none;
+	padding: 0;
+	background-color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 0.1rem;
+}

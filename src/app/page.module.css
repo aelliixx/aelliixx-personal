@@ -1,0 +1,111 @@
+.main {
+  display: grid;
+  max-width: 120ch;
+  gap: 8rem;
+  margin-inline: auto;
+  padding-block-end: 10rem;
+  animation: fadeIn 1s;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 25dvh;
+  line-height: 1.2;
+  font-size: 1.33em;
+}
+.hero h2 {
+  font-size: 1em;
+}
+.hero p {
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  max-width: 80ch;
+}
+.about * {
+  width: fit-content;
+}
+.about p {
+  margin-block-end: 1rem;
+}
+.about .read_more[data-visible=false] {
+  opacity: 0;
+  max-height: 0;
+}
+.about .read_more[data-visible=true] {
+  opacity: 1;
+  max-height: 80rem;
+}
+.about .read_more {
+  overflow: clip;
+  transition: max-height 500ms ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.experience .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.experience .grid .column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.experience .grid .column h4 {
+  place-self: center;
+  text-decoration: underline;
+}
+
+.projects h3 {
+  font-size: 1.5rem;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  margin-block-start: 1rem;
+  margin-block-end: 5rem;
+}
+.panels h3 {
+  font-size: 1em;
+}
+.panels .panel {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.0666666667) 0 0 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.panels .panel .panel_content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+.panels .panel .panel_content .tech {
+  padding-block-start: 1rem;
+  margin-block-start: auto;
+}
+.panels .panel img {
+  object-fit: cover;
+  object-position: center;
+  height: min-content;
+}
+
+/*# sourceMappingURL=page.module.css.map */

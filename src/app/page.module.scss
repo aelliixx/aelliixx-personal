@@ -3,8 +3,47 @@
   max-width: 120ch;
   gap: 8rem;
   margin-inline: auto;
-  padding-block-end: 10rem;
+  padding-block-end: 15rem;
   animation: fadeIn 1s;
+}
+
+.header {
+  position: fixed;
+  padding-block: 1rem;
+  width: 100%;
+  left: 0;
+  box-shadow: var(--secondary) 0 0 1rem;
+
+  background: var(--secondary);
+
+  transition: background-color 1s ease-out, color 1s ease-out, box-shadow 1s ease-out;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-shadow: var(--blue) 0 0 1rem;
+  }
+
+  .header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 120ch;
+    margin-inline: auto;
+
+    & > a {
+      font-size: 2rem;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .hero {
@@ -106,7 +145,7 @@
   .panel {
     display: flex;
     flex-direction: column;
-    box-shadow: #0001 0 0 1rem;
+    box-shadow: var(--500) 0 0 1rem;
     border-radius: 0.75rem;
     overflow: hidden;
     grid-column: span 2;
@@ -134,3 +173,81 @@
     }
   }
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 4fr;
+    gap: 1rem;
+    padding-block: 0.75rem;
+    border-bottom-style: dashed;
+    border-bottom-color: var(--primary);
+    border-bottom-width: 1px;
+  }
+
+  .table_header {
+    border-bottom-style: solid;
+    border-bottom-color: var(--primary);
+    border-bottom-width: 2px;
+  }
+}
+
+.testimonies {
+  display: flex;
+  flex-direction: column;
+
+  .testimony {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    margin-block: 1rem;
+    box-shadow: var(--500) 0 0 1rem;
+    border-radius: 0.75rem;
+
+    img {
+      border-radius: 100rem;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  max-width: 80ch;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1170px) {
+  .main {
+    padding-inline: 1rem;
+  }
+  .header_content {
+    flex-direction: column;
+    gap: 1rem;
+
+    .nav {
+      padding-inline: 1rem;
+    }
+  }
+
+  .experience .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panels {
+    grid-template-columns: 1fr;
+
+    .panel {
+      grid-row: span 1 !important;
+      grid-area: span 1 !important;
+    }
+  }
+}
+
+

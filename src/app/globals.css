@@ -1,75 +1,119 @@
 :root {
-	--red: #cc5c54;
-	--blue: #7094c2;
-	--green: #6dc09c;
+    --red: #cc5c54;
+    --blue: #7094c2;
+    --green: #6dc09c;
 
-	--primary: black;
+    --primary: #121212;
+    --secondary: white;
+    --500: #0001;
 }
 
 /* https://www.joshwcomeau.com/css/custom-css-reset/ */
 *, *::before, *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-	margin: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    scroll-margin-top: 5rem;
 }
 
 body {
-	line-height: 1.4;
-	-webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
 }
 
 img, picture, video, canvas, svg {
-	display: block;
-	max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 input, button, textarea, select {
-	font: inherit;
+    font: inherit;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-	overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #root, #__next {
-	isolation: isolate;
+    isolation: isolate;
+}
+
+body[data-dark=false] {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+body[data-dark=true] {
+    --primary: white;
+    --secondary: #121212;
+    --500: #aaf1;
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+
+body {
+    transition: background-color 1s ease-out, color 1s ease-out;
 }
 
 h2 {
-	font-size: 1.75em;
+    font-size: 1.75em;
 }
 
-a:visited {
-	color: var(--primary);
+a, a:visited {
+    color: var(--primary);
+}
+
+.text_large {
+    font-size: 2em;
 }
 
 button {
-	cursor: pointer;
+    color: inherit;
+    cursor: pointer;
 }
 
 .underline_red, .underline_blue, .underline_green {
-	text-decoration-line: underline;
-	text-decoration-thickness: 0.125rem;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.125rem;
 }
 
 .underline_red {
-	text-decoration-color: var(--red);
+    text-decoration-color: var(--red);
 }
 
 .underline_blue {
-	text-decoration-color: var(--blue);
+    text-decoration-color: var(--blue);
 }
 
 .underline_green {
-	text-decoration-color: var(--green);
+    text-decoration-color: var(--green);
 }
 
+
 .text_button {
-	border: none;
-	padding: 0;
-	background-color: inherit;
-	text-decoration: underline;
-	text-decoration-thickness: 0.1rem;
+    border: none;
+    padding: 0;
+    background-color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+}
+
+.no_underline {
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    * {
+        scroll-margin-top: 10rem;
+    }
+}
+
+@media (max-width: 300px) {
+    * {
+        scroll-margin-top: 15rem;
+    }
 }

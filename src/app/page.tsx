@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useState, useSyncExternalStore} from "react";
 
 import virtuverse from "../images/virtuverse_concept.png";
 import virtuverseweb from "../images/virtuverse_website.png";
@@ -19,13 +19,28 @@ import {Zilla_Slab} from "next/font/google";
 
 const inter = Zilla_Slab({weight: ["600"], subsets: ["latin"]});
 
+const darkQuery = "(prefers-color-scheme: dark)";
+
+function usePrefersDark() {
+    return useSyncExternalStore(
+        (onStoreChange) => {
+            const query = window.matchMedia(darkQuery);
+            query.addEventListener("change", onStoreChange);
+            return () => query.removeEventListener("change", onStoreChange);
+        },
+        () => window.matchMedia(darkQuery).matches,
+        () => true,
+    );
+}
+
 export default function Home() {
     const [readMore, setReadMore] = useState(false);
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkModeOverride, setDarkModeOverride] = useState<boolean | null>(null);
 
-    useEffect(() => {
-        setDarkMode(window.matchMedia("(prefers-color-scheme: dark").matches);
-    }, [setDarkMode]);
+    const prefersDark = usePrefersDark();
+    const darkMode = darkModeOverride ?? prefersDark;
+
+    const toggleDarkMode = () => setDarkModeOverride(!darkMode);
 
     return (
         <body className={inter.className} data-dark={darkMode}>
@@ -42,7 +57,7 @@ export default function Home() {
                         <Link href="/#testimonies">testimonies.</Link>
                         <Link href="/#contact">contact.</Link>
                     <button className="text_button no_underline"
-                            onClick={() => setDarkMode(!darkMode)}>{darkMode ? "☀️" : "🌘"}
+                            onClick={toggleDarkMode}>{darkMode ? "☀️" : "🌘"}
                     </button>
                     </nav>
                 </div>
@@ -175,7 +190,7 @@ export default function Home() {
                     here&apos;
                     s a small handful that I can!
                 </p>
-                <h3 className="underline_green">games</h3>https://www.aelliixx.com/
+                <h3 className="underline_green">games</h3>
                 <div className={styles.panels}>
                     <div className={styles.panel} style={{gridColumn: "span 3"}}>
                         <Image src={virtuverse} alt={"Concept art for Virtuverse by Keegan"}/>

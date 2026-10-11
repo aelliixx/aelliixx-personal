@@ -614,15 +614,14 @@ export default function Home() {
                         <p><i>Description</i></p>
                     </div>
                     <div className={styles.row}>
-                        <p>Dec. 2022 - Present</p>
-                        <p>Director, MB Allographic</p>
-                        <p>Allographic is a company I co-founded which focuses on B2B software consulting and
-                           enterprise software development. Personally I am focused on the technology side of the
-                           business where I maintain our backend infrastructure and develop enterprise software for
-                           business and project management.</p>
+                        <p>May 2024 - Present</p>
+                        <p>Full-stack Web Developer, Freelance</p>
+                        <p>Independent consultant delivering client work across full-stack web and game development. Worked closely
+                           with clients from their initial idea to deployment and publishing. Understanding their requirements and target
+                           audience to deliver the most robust and cost efficient solutions.</p>
                     </div>
                     <div className={styles.row}>
-                        <p>Jun. 2022 - Present</p>
+                        <p>Jun. 2022 - Jan. 2025</p>
                         <p>Software Engineering Consultant, Magna Ludum Creative</p>
                         <p>I have worked with a number of clients on a variety of games, be it mobile, desktop, using
                            Unity or Unreal, 2D, 3D, multiplayer or otherwise. My contributions to these projects include

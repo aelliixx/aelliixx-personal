@@ -86,9 +86,9 @@ export default function Home() {
                         <a href={"#software"}>software.</a>
                         <a href={"#testimonies"}>testimonies.</a>
                         <a href={"#contact"}>contact.</a>
-                    <button className="text_button no_underline"
-                            onClick={toggleDarkMode}>{darkMode ? "☀️" : "🌘"}
-                    </button>
+                        <button className="text_button no_underline"
+                                onClick={toggleDarkMode}>{darkMode ? "☀️" : "🌘"}
+                        </button>
                     </nav>
                 </div>
             </header>
@@ -100,7 +100,10 @@ export default function Home() {
                         className="underline_green">Game Developer</span> \&#8288;\ <span className="underline_red">Full-stack Web Developer</span> \&#8288;\ <span
                     className="underline_blue">Software Engineer</span>
                 </h2>
-                <a href={"#work"} className={styles.button}>View CV</a>
+                <div className={styles.cta}>
+                    <a href={"#work"} className={styles.btn}>View CV</a>
+                    <Link href={"mailto:mockus49@gmail.com"} className={styles.alt_button}>Email</Link>
+                </div>
             </div>
             <section className={styles.about} id="about">
                 <h2>{!readMore && <span>
@@ -243,7 +246,8 @@ export default function Home() {
                                 Unreal
                                 Engine 5. </p>
                             <p>
-                                The artwork you see here is done by the amazing <Link href={"https://www.artstation.com/keeganblazey"}>Keegan Blazey</Link>.
+                                The artwork you see here is done by the amazing <Link
+                                href={"https://www.artstation.com/keeganblazey"}>Keegan Blazey</Link>.
                             </p>
                             <div className={styles.tech}>
                                 <p>Tech:</p>

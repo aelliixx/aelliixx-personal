@@ -63,6 +63,12 @@
 
 }
 
+.cta {
+  display: flex;
+  gap: 1rem;
+  margin-block-start: 2rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -70,6 +76,31 @@
   to {
     opacity: 1;
   }
+}
+
+.btn, .alt_button {
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  text-decoration: none;
+
+  transition: background-color 1s ease-out, color 1s ease-out;
+}
+
+.btn {
+  background-color: var(--dark-blue);
+}
+
+.alt_button {
+  outline: 2px solid var(--dark-blue);
+}
+
+body[data-dark=false] .btn {
+  background-color: var(--blue);
+}
+
+body[data-dark=false] .alt_button {
+  outline-color: var(--blue);
 }
 
 .about {

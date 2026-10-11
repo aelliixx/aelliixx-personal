@@ -5,19 +5,49 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import {useState, useSyncExternalStore} from "react";
 
-import virtuverse from "../images/virtuverse_concept.png";
-import virtuverseweb from "../images/virtuverse_website.png";
-import vvapril from "../images/vvapril.png";
-import nmn from "../images/nmn_game.png";
-import uedocs from "../images/uedocs_website.png";
-import allographic from "../images/allographic_website.png";
-import deliciously from "../images/deliciously.png";
-import diamondback from "../images/diamondback.png";
-import annunziato from "../images/annunziato.png";
 import sam from "../images/sam.webp";
 import {Zilla_Slab} from "next/font/google";
 
 const inter = Zilla_Slab({weight: ["600"], subsets: ["latin"]});
+
+// Panels span 2, 3 or 4 of the 6 columns; below 1170px they become a single column.
+const panelSizes = {
+    span2: "(max-width: 1170px) 100vw, 33vw",
+    span3: "(max-width: 1170px) 100vw, 50vw",
+    span4: "(max-width: 1170px) 100vw, 67vw",
+} as const;
+
+type PanelImageProps = {
+    name: string;
+    alt: string;
+    width: number;
+    height: number;
+    sizes: string;
+};
+
+/**
+ * Serves the pre-optimised WebP copies from /public. next/image can't pick a
+ * scale itself here because `images.unoptimized` is on (required by output:
+ * "export"), so the <source> carries the srcSet and <Image> is the fallback img.
+ */
+function PanelImage({name, alt, width, height, sizes}: PanelImageProps) {
+    return (
+        <picture>
+            <source
+                type="image/webp"
+                srcSet={`/images/${name}-640.webp 640w, /images/${name}-1280.webp 1280w`}
+                sizes={sizes}
+            />
+            <Image
+                src={`/images/${name}-1280.webp`}
+                alt={alt}
+                width={width}
+                height={height}
+                sizes={sizes}
+            />
+        </picture>
+    );
+}
 
 const darkQuery = "(prefers-color-scheme: dark)";
 
@@ -47,18 +77,18 @@ export default function Home() {
         <main className={styles.main}>
             <header className={styles.header}>
                 <div className={styles.header_content}>
-                    <Link href={"/"}>aelliixx.</Link>
+                    <a href={"/"}>aelliixx.</a>
                     <nav className={styles.nav}>
-                        <Link href="/#about">about.</Link>
-                        <Link href="/#experience">experience.</Link>
-                        <Link href="/#games">games.</Link>
-                        <Link href="/#web">web.</Link>
-                        <Link href="/#software">software.</Link>
-                        <Link href="/#testimonies">testimonies.</Link>
-                        <Link href="/#contact">contact.</Link>
-                    <button className="text_button no_underline"
-                            onClick={toggleDarkMode}>{darkMode ? "☀️" : "🌘"}
-                    </button>
+                        <a href={"#about"}>about.</a>
+                        <a href={"#experience"}>experience.</a>
+                        <a href={"#games"}>games.</a>
+                        <a href={"#web"}>web.</a>
+                        <a href={"#software"}>software.</a>
+                        <a href={"#testimonies"}>testimonies.</a>
+                        <a href={"#contact"}>contact.</a>
+                        <button className="text_button no_underline"
+                                onClick={toggleDarkMode}>{darkMode ? "☀️" : "🌘"}
+                        </button>
                     </nav>
                 </div>
             </header>
@@ -70,6 +100,10 @@ export default function Home() {
                         className="underline_green">Game Developer</span> \&#8288;\ <span className="underline_red">Full-stack Web Developer</span> \&#8288;\ <span
                     className="underline_blue">Software Engineer</span>
                 </h2>
+                <div className={styles.cta}>
+                    <a href={"#work"} className={styles.btn}>View CV</a>
+                    <Link href={"mailto:mockus49@gmail.com"} className={styles.alt_button}>Email</Link>
+                </div>
             </div>
             <section className={styles.about} id="about">
                 <h2>{!readMore && <span>
@@ -193,7 +227,9 @@ export default function Home() {
                 <h3 className="underline_green">games</h3>
                 <div className={styles.panels}>
                     <div className={styles.panel} style={{gridColumn: "span 3"}}>
-                        <Image src={virtuverse} alt={"Concept art for Virtuverse by Keegan"}/>
+                        <PanelImage name={"virtuverse_concept"} width={1280} height={757}
+                                    sizes={panelSizes.span3}
+                                    alt={"Concept art for Virtuverse by Keegan"}/>
                         <div className={styles.panel_content}>
                             <h3>Virtuverse</h3>
                             <p> Virtuverse is an RCE MMO-RPG set in a virtual world. A sort of sandbox-on-rails,
@@ -210,7 +246,8 @@ export default function Home() {
                                 Unreal
                                 Engine 5. </p>
                             <p>
-                                The artwork you see here is done by the amazing <Link href={"https://www.artstation.com/keeganblazey"}>Keegan Blazey</Link>.
+                                The artwork you see here is done by the amazing <Link
+                                href={"https://www.artstation.com/keeganblazey"}>Keegan Blazey</Link>.
                             </p>
                             <div className={styles.tech}>
                                 <p>Tech:</p>
@@ -239,7 +276,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 3"}}>
-                        <Image src={nmn} alt={"Screenshot of No Man's North website"}/>
+                        <PanelImage name={"nmn_game"} width={1280} height={626}
+                                    sizes={panelSizes.span3}
+                                    alt={"Screenshot of No Man's North website"}/>
                         <div className={styles.panel_content}>
                             <h3>No Man&apos;s North</h3>
                             <p>
@@ -254,7 +293,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 4"}}>
-                        <Image src={"https://cdn.akamai.steamstatic.com/steam/apps/1361570/header.jpg?t=1695841211"}
+                        <Image src={"/images/uprising-460.webp"}
                                width={900} height={300} alt={"Uprising title screen"}/>
                         <div className={styles.panel_content}>
                             <h3>Uprising</h3>
@@ -264,7 +303,6 @@ export default function Home() {
                                 shotguns and
                                 shield walls, or stand in solidarity with the &quot;peaceful&quot; Protestors armed with
                                 everything from machetes to a surprising arsenal of cactus weaponry.
-
                             </p>
                             <div className={styles.tech}>
                                 <p>Tech:</p>
@@ -312,7 +350,9 @@ export default function Home() {
                 <h3 className="underline_red" id="web">web</h3>
                 <div className={styles.panels}>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 3"}}>
-                        <Image src={diamondback} alt={"Screenshot of diamondback homepage"}/>
+                        <PanelImage name={"diamondback"} width={1280} height={595}
+                                    sizes={panelSizes.span3}
+                                    alt={"Screenshot of diamondback homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>Diamondback studios</h3>
                             <p>
@@ -329,7 +369,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 3"}}>
-                        <Image src={annunziato} alt={"Screenshot of diamondback homepage"}/>
+                        <PanelImage name={"annunziato"} width={1280} height={596}
+                                    sizes={panelSizes.span3}
+                                    alt={"Screenshot of diamondback homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>Annunziato achievements</h3>
                             <p>
@@ -346,7 +388,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 2 / span 2"}}>
-                        <Image src={uedocs} alt={"Screenshot of UE docs homepage"}/>
+                        <PanelImage name={"uedocs_website"} width={1280} height={626}
+                                    sizes={panelSizes.span2}
+                                    alt={"Screenshot of UE docs homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>UE Docs</h3>
                             <p>
@@ -364,7 +408,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 2 / span 4"}}>
-                        <Image src={allographic} alt={"Screenshot of allographic.io homepage"}/>
+                        <PanelImage name={"allographic_website"} width={1280} height={627}
+                                    sizes={panelSizes.span4}
+                                    alt={"Screenshot of allographic.io homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>allographic.io</h3>
                             <p>
@@ -383,8 +429,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 3"}}>
-                        <Image src={virtuverseweb}
-                               alt={"Screenshot of Virtuverse.io homepage"}/>
+                        <PanelImage name={"virtuverse_website"} width={1280} height={626}
+                                    sizes={panelSizes.span3}
+                                    alt={"Screenshot of Virtuverse.io homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>Virtuverse</h3>
                             <p>
@@ -398,8 +445,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridArea: "span 1 / span 3"}}>
-                        <Image src={vvapril}
-                               alt={"Screenshot of april.virtuverse.io homepage"}/>
+                        <PanelImage name={"vvapril"} width={1280} height={761}
+                                    sizes={panelSizes.span3}
+                                    alt={"Screenshot of april.virtuverse.io homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>Virtuverse April Fools Site</h3>
                             <p>
@@ -413,7 +461,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.panel} style={{gridColumn: "span 4"}}>
-                        <Image src={deliciously} alt={"Screenshot of allographic.io homepage"}/>
+                        <PanelImage name={"deliciously"} width={1280} height={641}
+                                    sizes={panelSizes.span4}
+                                    alt={"Screenshot of allographic.io homepage"}/>
                         <div className={styles.panel_content}>
                             <h3>Deliciously</h3>
                             <p>
@@ -564,15 +614,14 @@ export default function Home() {
                         <p><i>Description</i></p>
                     </div>
                     <div className={styles.row}>
-                        <p>Dec. 2022 - Present</p>
-                        <p>Director, MB Allographic</p>
-                        <p>Allographic is a company I co-founded which focuses on B2B software consulting and
-                           enterprise software development. Personally I am focused on the technology side of the
-                           business where I maintain our backend infrastructure and develop enterprise software for
-                           business and project management.</p>
+                        <p>May 2024 - Present</p>
+                        <p>Full-stack Web Developer, Freelance</p>
+                        <p>Independent consultant delivering client work across full-stack web and game development. Worked closely
+                           with clients from their initial idea to deployment and publishing. Understanding their requirements and target
+                           audience to deliver the most robust and cost efficient solutions.</p>
                     </div>
                     <div className={styles.row}>
-                        <p>Jun. 2022 - Present</p>
+                        <p>Jun. 2022 - Jan. 2025</p>
                         <p>Software Engineering Consultant, Magna Ludum Creative</p>
                         <p>I have worked with a number of clients on a variety of games, be it mobile, desktop, using
                            Unity or Unreal, 2D, 3D, multiplayer or otherwise. My contributions to these projects include
@@ -628,8 +677,8 @@ export default function Home() {
                     <p>
                         You can reach out to me by email:
                     </p>
-                    <Link href={"mailto:donatas@allographic.io"}
-                          className="text_large underline_blue">donatas@allographic.io</Link>
+                    <Link href={"mailto:mockus49@gmail.com"}
+                          className="text_large underline_blue">mockus49@gmail.com</Link>
 
                     <p>
                         Or find me on these platforms:

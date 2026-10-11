@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:commit": "node scripts/lint-commit-message.mjs",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "react": "^19",

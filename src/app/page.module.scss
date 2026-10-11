@@ -205,6 +205,12 @@ body[data-dark=false] .alt_button {
   }
 }
 
+.work {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .table {
   display: flex;
   flex-direction: column;
@@ -264,6 +270,23 @@ body[data-dark=false] .alt_button {
     .nav {
       padding-inline: 1rem;
     }
+  }
+
+  .row {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.25rem !important;
+
+    p:nth-of-type(2) {
+      font-size: 1.2rem;
+      text-decoration: underline;
+      text-decoration-thickness: 0.15rem;
+      text-decoration-color: #2f3d50;
+    }
+  }
+
+  .table_header:first-of-type {
+    display: none !important;
   }
 
   .experience .grid {

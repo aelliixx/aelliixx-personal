@@ -606,7 +606,10 @@ export default function Home() {
                 </ul>
             </section>
             <section id="work">
-                <h2>work.</h2>
+                <div className={styles.work}>
+                    <h2>work.</h2>
+                    <Link href={"/resume.pdf"} download="Donatas_Mockus_Resume">Download PDF</Link>
+                </div>
                 <div className={styles.table}>
                     <div className={`${styles.row} ${styles.table_header}`}>
                         <p><i>Date</i></p>
@@ -614,28 +617,22 @@ export default function Home() {
                         <p><i>Description</i></p>
                     </div>
                     <div className={styles.row}>
-                        <p>May 2024 - Present</p>
+                        <p>May 2024 - Oct. 2026</p>
                         <p>Full-stack Web Developer, Freelance</p>
-                        <p>Independent consultant delivering client work across full-stack web and game development. Worked closely
-                           with clients from their initial idea to deployment and publishing. Understanding their requirements and target
+                        <p>Independent consultant delivering client work across full-stack web and game development.
+                           Worked closely
+                           with clients from their initial idea to deployment and publishing. Understanding their
+                           requirements and target
                            audience to deliver the most robust and cost efficient solutions.</p>
                     </div>
                     <div className={styles.row}>
                         <p>Jun. 2022 - Jan. 2025</p>
-                        <p>Software Engineering Consultant, Magna Ludum Creative</p>
+                        <p>Development Consultant, Magna Ludum Creative</p>
                         <p>I have worked with a number of clients on a variety of games, be it mobile, desktop, using
                            Unity or Unreal, 2D, 3D, multiplayer or otherwise. My contributions to these projects include
                            feature design and development, bug fixing, and QA. I work extremely closely with the
                            individual clients to ensure I can deliver exactly what they have imagined on time and on
                            budget.</p>
-                    </div>
-                    <div className={styles.row}>
-                        <p>May 2020 - May 2024</p>
-                        <p>Lead World Designer, Virtuverse A.B.</p>
-                        <p>In mid-2020 I took the lead responsibility of world level design, with primary
-                           responsibilities of natural and urban open world design. This, in combination with my
-                           experience in programming, allowed me to create dynamic, and in places procedural, maps that
-                           adapt to player’s behaviour.</p>
                     </div>
                     <div className={`${styles.row} ${styles.table_header}`}>
                         <p>Feb. 2019 - May 2024</p>

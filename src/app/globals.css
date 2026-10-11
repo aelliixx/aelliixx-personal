@@ -2,6 +2,7 @@
     --red: #cc5c54;
     --blue: #7094c2;
     --green: #6dc09c;
+    --dark-blue: #2f3d50;
 
     --primary: #121212;
     --secondary: white;
@@ -44,6 +45,7 @@ p, h1, h2, h3, h4, h5, h6 {
 body[data-dark=false] {
     background-color: var(--secondary);
     color: var(--primary);
+
 }
 
 body[data-dark=true] {
